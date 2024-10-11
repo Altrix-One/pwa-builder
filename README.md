@@ -13,7 +13,8 @@ This is a hobby project by the developers at Aerele Technologies. Feel free to r
 - Select a Doctype and easily drag and drop fields from its metadata to create app screens.
 - Export your project and download a `Frappe App`.
 - Install this `Frappe App` to your actual site.
-- Access your new pwa on `https://<your-site-name>/<your-pwa-project-name>`
+- Access your new pwa on `https://<your-site-name>/frontend`
+- Using the PWA Form Doctype you can add additional forms to your application by adding the json code directly.
 
 ![PWA Builder Screen](https://insider.frappe.cloud/files/pwa_builder.png)
 
