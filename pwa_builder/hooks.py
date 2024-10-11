@@ -8,7 +8,15 @@ app_license = "mit"
 
 # Includes in <head>
 # ------------------
-
+add_to_apps_screen = [
+	{
+		"name": "pwa_builder",
+		"logo": "/files/Altrix icons-options_Builder.png",
+		"title": "PWA Builder",
+		"route": "/frontend",
+		"has_permission": "hrms.hr.utils.check_app_permission",
+	}
+]
 # include js, css files in header of desk.html
 # app_include_css = "/assets/pwa_builder/css/pwa_builder.css"
 # app_include_js = "/assets/pwa_builder/js/pwa_builder.js"
