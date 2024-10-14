@@ -4,19 +4,14 @@
 	</a>
 	<h2>Altrix One PWA Builder</h2>
 	<p align="center">
-		<p>Open Source, modern, and easy-to-use tool designed to help users create Progressive Web Applications.</p>
+		<p>PWA Builder is a tool designed to help users create Progressive Web Applications (PWAs) connected to their Frappe sites. With this builder, users can connect their Frappe sites, and build app-like screens by dragging and dropping fields of their site's doctypes.</p>
 	</p>
 
-# PWA Builder
-
-**PWA Builder** is a tool designed to help users create Progressive Web Applications (PWAs) connected to their Frappe sites. With this builder, users can connect their Frappe sites, and build app-like screens by dragging and dropping fields of their site's doctypes.
-
+<p>
 We are improving on the addition of all the possible field types and routing abilities across screens.
-
-This is a hobby project by the developers at Aerele Technologies. Feel free to reach out to us via issues.
+This is a hobby project by the developers at Aerele Technologies. Feel free to reach out to us via issues.</p>
 
 ## Steps
-
 - Start by creating a project in the PWA Builder.
 - Connect your Frappe site to the builder and give access to your Doctypes. 
 - Select a Doctype and easily drag and drop fields from its metadata to create app screens.
