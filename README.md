@@ -1,6 +1,6 @@
 <div align="center">
 	<a href="">
-		<img src="https://github.com/Altrix-One/pwa-builder/blob/develop/pwa_builder/public/frontend/favicon.png">
+		<img src="https://github.com/Altrix-One/pwa-builder/blob/develop/pwa_builder/public/frontend/favicon.png" height="128" alt="Altrix One PWA Builder">
 	</a>
 	<h2>Altrix One PWA Builder</h2>
 	<p align="center">
