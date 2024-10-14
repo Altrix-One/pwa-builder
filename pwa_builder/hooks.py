@@ -11,7 +11,7 @@ app_license = "mit"
 add_to_apps_screen = [
 	{
 		"name": "pwa_builder",
-		"logo": "/pwa_builder/public/frontend/favicon.png",
+		"logo": "/files/Altrix icons-options_Progressive Web App Builder.png",
 		"title": "PWA Builder",
 		"route": "/frontend",
 		"has_permission": "hrms.hr.utils.check_app_permission",
