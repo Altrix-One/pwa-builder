@@ -1,3 +1,12 @@
+<div align="center">
+	<a href="">
+		<img src="https://github.com/Altrix-One/pwa-builder/blob/develop/pwa_builder/public/frontend/favicon.png">
+	</a>
+	<h2>Altrix One PWA Builder</h2>
+	<p align="center">
+		<p>Open Source, modern, and easy-to-use tool designed to help users create Progressive Web Applications.</p>
+	</p>
+
 # PWA Builder
 
 **PWA Builder** is a tool designed to help users create Progressive Web Applications (PWAs) connected to their Frappe sites. With this builder, users can connect their Frappe sites, and build app-like screens by dragging and dropping fields of their site's doctypes.
