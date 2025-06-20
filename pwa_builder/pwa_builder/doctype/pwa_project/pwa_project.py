@@ -29,6 +29,12 @@ def schedule_export_project(project_name):
 	git_clone_response=pwa_github_integration.clone_pwa_template(project_name)
 	if git_clone_response.get('success') and git_clone_response.get('public_folder_path'):
 		file_path = git_clone_response.get('public_folder_path')
+		if project_doc.pwa_theme:
+			theme_doc = frappe.get_doc("PWA Theme", project_doc.pwa_theme)
+			theme_path = file_path + "/pwa_build/pwa_build/theme.json"
+			with open(theme_path, 'w') as theme_file:
+				theme_file.write(frappe.as_json(theme_doc))
+
 		if pwa_doctype := frappe.get_list("PWA DocType", {"project_name": project_doc.name}):
 			for doctype in pwa_doctype:
 				doc = frappe.get_doc("PWA DocType", doctype.name)

@@ -90,13 +90,13 @@
                             <Input type="text" label="" placeholder="eg: https://sitename" v-model="project.site_url"/>
                          </div>
                          <div class="mb-2">
-                            <div class=" after:content-['_*'] after:text-red-600 mb-2">User ID</div>
-                            <Input type="email" label="" placeholder="eg: example@gmail.com" v-model="project.user_id"/>
-                         </div>
-                         <div class="mb-2">
-                            <div class=" after:content-['_*'] after:text-red-600 mb-2">Password</div>
-                            <Input type="password" label="" placeholder="" v-model="project.password"/>
-                         </div>
+                            <div class=" after:content-['_*'] after:text-red-600 mb-2">API Key</div>
+                            <Input type="text" label="" placeholder="eg: 8db1a72b1c34567" v-model="project.api_key"/>
+                        </div>
+                        <div class="mb-2">
+                           <div class=" after:content-['_*'] after:text-red-600 mb-2">API Secret</div>
+                           <Input type="password" label="" placeholder="eg: 2a9b8c7d6e5f432" v-model="project.api_secret"/>
+                        </div>
                          <div class="mb-4">
                             <div class=" mb-2">Description</div>
                             <FormControl
@@ -143,8 +143,8 @@ let response = ref([])
 let project = reactive({
     project_title: "",
     site_url: "",
-    user_id: "",
-    password: "",
+    api_key: "",
+    api_secret: "",
     description: "",
 })
 
@@ -176,7 +176,7 @@ function createProject() {
 }
 const pwaProjectList = createListResource({
     doctype: "PWA-Project",
-    fields: ['project_title', 'sub_title', 'site_url', 'user_id', "name", "project_logo"],
+    fields: ['project_title', 'sub_title', 'site_url', 'api_key', 'api_secret', "name", "project_logo"],
     transform(data) {
         let transformData = []
         data.map((item) => {

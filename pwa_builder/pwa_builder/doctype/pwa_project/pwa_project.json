@@ -10,6 +10,7 @@
   "site_url",
   "user_id",
   "project_logo",
+  "pwa_theme",
   "description",
   "column_break_kckg",
   "github_repository_url",
@@ -51,6 +52,12 @@
    "fieldname": "project_logo",
    "fieldtype": "Attach",
    "label": "Project Logo"
+  },
+  {
+   "fieldname": "pwa_theme",
+   "fieldtype": "Link",
+   "label": "Theme",
+   "options": "PWA Theme"
   },
   {
    "fieldname": "column_break_kckg",
