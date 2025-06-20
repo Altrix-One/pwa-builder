@@ -13,7 +13,7 @@
   "disable",
   "is_validated",
   "section_break_iong",
-  "field_list"
+  "pwa_form_fields"
  ],
  "fields": [
   {
@@ -41,9 +41,10 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "field_list",
-   "fieldtype": "JSON",
-   "label": "Field List"
+   "fieldname": "pwa_form_fields",
+   "fieldtype": "Table",
+   "label": "PWA Form Fields",
+   "options": "PWA Form Field"
   },
   {
    "fieldname": "project_name",

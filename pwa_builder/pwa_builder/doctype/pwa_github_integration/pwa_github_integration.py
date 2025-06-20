@@ -12,25 +12,26 @@ from time import sleep
 from frappe import ValidationError, _, qb, scrub, throw
 from frappe.utils import get_site_path, scheduler, touch_file
 from frappe.model.document import Document
+from frappe.utils.password import encrypt, check_password
 
 
 class PWAGitHubIntegration(Document):
-	pass
+	def on_update(self):
+		if self.has_value_changed("access_token"):
+			self.access_token = encrypt(self.get_password("access_token"))
 
 
-frappe.whitelist()
-def push_to_github(path, repo_name, current_default_branch=None, last_push_commit=None):
-	pwa_github_integration = frappe.get_single('PWA GitHub Integration')
-	github_token = pwa_github_integration.get_password('access_token')
-	github_username = pwa_github_integration.github_username
-	push_to_org = pwa_github_integration.push_repository_to_an_organization
-	organization_name = pwa_github_integration.organization_name
-	is_private = pwa_github_integration.is_private
-	get_exports_on = pwa_github_integration.get_exports_on
+	@frappe.whitelist()
+	def push_to_github(self, path, repo_name, current_default_branch=None, last_push_commit=None):
+		github_token = self.get_password('access_token')
+		github_username = self.github_username
+		push_to_org = self.push_repository_to_an_organization
+		organization_name = self.organization_name
+		is_private = self.is_private
+		get_exports_on = self.get_exports_on
 
-
-	branch_name = get_branch_name(get_exports_on=get_exports_on,current_default_branch=current_default_branch)
-	commit_msg = get_commit_message(get_exports_on=get_exports_on,last_push_commit=last_push_commit)
+		branch_name = self.get_branch_name(get_exports_on=get_exports_on,current_default_branch=current_default_branch)
+		commit_msg = self.get_commit_message(get_exports_on=get_exports_on,last_push_commit=last_push_commit)
 
 	repo_name = scrub(repo_name)
 
@@ -126,7 +127,7 @@ def push_to_github(path, repo_name, current_default_branch=None, last_push_commi
 		frappe.log_error(frappe.get_traceback(), "Git Push Failed")
 		return {'success': False, 'error': str(e)}
 
-def clone_pwa_template(project_name,repo_url="https://github.com/aerele/pwa_build.git"):
+	def clone_pwa_template(self, project_name,repo_url="https://github.com/aerele/pwa_build.git"):
     
 	project_name = scrub(project_name)
 	public_folder = os.path.join(get_site_path("public/files/"), project_name,"pwa_build")
@@ -156,7 +157,7 @@ def clone_pwa_template(project_name,repo_url="https://github.com/aerele/pwa_buil
 		result['error'] = f"{e}"
 	return result
 
-def get_branch_name(get_exports_on,current_default_branch):
+	def get_branch_name(self, get_exports_on,current_default_branch):
 	branch_name=current_default_branch
 	if get_exports_on == "New Commit":
 		if not current_default_branch:
@@ -168,7 +169,7 @@ def get_branch_name(get_exports_on,current_default_branch):
 			branch_name = f'''version-{eval(branch_name.split("-")[-1])+1}'''
 	return branch_name
 
-def get_commit_message(get_exports_on,last_push_commit):
+	def get_commit_message(self, get_exports_on,last_push_commit):
 	commit_msg=last_push_commit
 	if get_exports_on == "New Commit":
 		if not last_push_commit:

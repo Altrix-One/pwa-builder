@@ -9,7 +9,6 @@
   "sub_title",
   "site_url",
   "user_id",
-  "password",
   "project_logo",
   "description",
   "column_break_kckg",
@@ -39,14 +38,14 @@
    "label": "Description"
   },
   {
-   "fieldname": "user_id",
+   "fieldname": "api_key",
    "fieldtype": "Data",
-   "label": "User ID"
+   "label": "API Key"
   },
   {
-   "fieldname": "password",
+   "fieldname": "api_secret",
    "fieldtype": "Password",
-   "label": "Password"
+   "label": "API Secret"
   },
   {
    "fieldname": "project_logo",
